@@ -1,19 +1,19 @@
 #Demo app on AngularJS
 
 ##Built with
-angular-seed — the seed for AngularJS apps
-Twitter bootstrap v3
-CouchDB 
-PouchDB
+* Angular-seed — the seed for AngularJS apps
+* Twitter bootstrap v3
+* CouchDB 
+* PouchDB
 
 ##Setup
 
-# 1. Clone the repo
-# 2. Upload it to you local HTTP server or navigate to /script and run web-server.js (NodeJS should be present)
-# 3. Download and install CouchDB (http://couchdb.apache.org/)
-# 4. Navigate to 127.0.0.1:5984/_utils and set up a database named ng-db, enable CROS in configuration, add origins: *
-# 5. Open your web server and navigate under /app directory
-# 6. Start playing
+* 1. Clone the repo
+* 2. Upload it to you local HTTP server or navigate to /script and run web-server.js (NodeJS should be present)
+* 3. Download and install CouchDB (http://couchdb.apache.org/)
+* 4. Navigate to 127.0.0.1:5984/_utils and set up a database named ng-db, enable CROS in configuration, add origins: *
+* 5. Open your web server and navigate under /app directory
+* 6. Start playing
 
 
 ## How to use angular-seed

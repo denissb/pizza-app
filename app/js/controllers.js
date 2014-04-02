@@ -51,12 +51,17 @@ angular.module('pizzaApp.controllers', [])
             };
 
             $scope.remove = function (item) {
-                var index = $rootScope.cart.items.indexOf(item);
-                if ($rootScope.cart.items[index].qty > 1) {
-                    $rootScope.cart.items[index].qty--;
+                var i = $rootScope.cart.items.indexOf(item);
+                if (item.qty > 1) {
+                    var price = item.price/item.qty
+                    $rootScope.cart.items[i].price -= price;
+                    $rootScope.cart.items[i].qty--;
+                    $rootScope.cart.total -= price;
                 } else {
-                    $rootScope.cart.items.splice(index, 1);
+                    $rootScope.cart.items.splice(i, 1);
+                    $rootScope.cart.total -= item.price;
                 }
+
             }
         }
     ])
