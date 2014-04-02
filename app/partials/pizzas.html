@@ -1,0 +1,66 @@
+<div class="row pizzas">
+    <div class="col-xs-12 col-sm-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Filter</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <input ng-model="search"
+                        class="form-control" id="name" placeholder="Search">
+                </div>
+                <div class="form-group">
+                    <label for="kind" class="control-label">Kind</label>
+                    <select ng-model="kind" ng-options="kind for kind in kinds"
+                        id="kind" class="form-control"></select>
+                </div>
+            </div>
+        </div>
+        <div ng-show="cart.items.length" class="panel cart panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Your order:</h3>
+            </div>
+            <div class="panel-body">
+
+                    <div ng-repeat="item in cart.items" class="row">
+                        <div class="col-md-4">{{ item.name }} </div>
+                        <div class="col-md-2">{{ item.qty }}</div>
+                        <div class="col-md-4">{{ item.price | bitcoin}}</div>
+                        <div class="col-md-2">
+                            <button ng-click="remove(item)" class="btn btn-default btn-xs">&#x2717;</button>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <span>Total: <strong>{{ cart.total | bitcoin }}</strong></span>
+                    </div>
+
+                </table>
+                <button ng-click="checkout()" class="btn btn-success" >Checkout</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+        <div class="row">
+            <div ng-repeat="item in pizzas | filter: kind | filter: {kind: kind}" class="col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <img ng-src="{{ item.image }}" class="pizza-img img-responsive"/>
+                        <h4>
+                            {{item.name}}
+                            <span class="label label-info">{{item.kind}}</span>
+                        </h4>
+
+                        <p>{{item.info}}</p>
+
+                        <div class="btn-group buy">
+                            <button type="button" class="btn btn-default active">
+                                <strong>{{item.price | bitcoin}}</strong>
+                            </button>
+                            <button ng-click="add(item)" class="btn btn-success" >Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+/* app css stylesheet */
+
+.pizzas {
+    margin-top: 15px;
+}
+
+.pizzas .buy  {
+    font-size: 16px;
+}
+
+.cart .total {
+    padding: 5px 0;
+    margin: 5px 0;
+    border-top: 1px solid #eee;
+}
+.img-responsive.pizza-img {
+    max-width: 200px;
+}
+
+.add-pizza .ng-dirty.ng-valid {
+    border-color: green;
+}
+
+.add-pizza .ng-dirty.ng-invalid {
+    border-color: red;
+}

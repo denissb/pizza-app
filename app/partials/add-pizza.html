@@ -1,0 +1,74 @@
+<div class="row add-pizza">
+    <div class="col-xs-12">
+    <h2 class="col-sm-offset-2">Add a pizza</h2>
+    <hr />
+    <form name="pizzaForm" class="form-horizontal" ng-submit="submit()">
+        <div ng-show="submited" class="alert alert-{{ submited.type }} col-sm-offset-2 alert-dismissable">{{ submited.msg }}</div>
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-5">
+                <input ng-required="true" ng-model="pizza.name" ng-maxlength="50" ng-minlength="3"
+                    type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="kind" class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-2">
+                <select ng-model="pizza.kind" id="kind" ng-required="true"
+                    ng-options="kind for kind in kinds" class="form-control"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image" class="col-sm-2 control-label">Image URL</label>
+            <div class="col-sm-5">
+                <input ng-model="pizza.image" ng-required="true"
+                    type="url" class="form-control" id="image" placeholder="Image URL">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="info" class="col-sm-2 control-label">Info</label>
+            <div class="col-sm-5">
+                <textarea ng-model="pizza.info" ng-maxlength="150" id="info"
+                    class="form-control" placeholder="Enter info"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">Price</label>
+            <div class="col-sm-2">
+                <div class="input-group">
+                    <span class="input-group-addon">฿</span>
+                    <input ng-model="pizza.price" ng-required="true" ng-pattern="/^(\d|\.)+$/"
+                        placeholder="0.00" type="text" id="price" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" ng-disabled="pizzaForm.$invalid"
+                    class="btn btn-primary form-controll">Submit</button>
+            </div>
+        </div>
+     </form>
+    <hr />
+        <table class="pizzas table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Kind</th>
+                    <th>Info</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="item in pizzas">
+                <td><img ng-src="{{ item.image }}" class="pizza-img img-responsive" /></td>
+                <td>{{item.name}}</td>
+                <td>{{item.kind}}</td>
+                <td>{{item.info}}</td>
+                <td>{{item.price | bitcoin}}</td>
+                <td><button ng-click="remove(item._id)" class="btn btn-danger">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
