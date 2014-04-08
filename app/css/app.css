@@ -8,11 +8,20 @@
     font-size: 16px;
 }
 
+.pizza.panel {
+   height: 300px;
+}
+
 .cart .total {
     padding: 5px 0;
     margin: 5px 0;
     border-top: 1px solid #eee;
 }
+
+.cart .items {
+    padding: 2px 0;
+}
+
 .img-responsive.pizza-img {
     max-width: 200px;
 }

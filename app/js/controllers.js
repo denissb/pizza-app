@@ -39,8 +39,6 @@ angular.module('pizzaApp.controllers', [])
                         $rootScope.cart.total += entry.price;
                         firstOne = true;
                         return;
-                    } else {
-                        $rootScope.cart.total += $rootScope.cart.items[i].price;
                     }
                 }
 

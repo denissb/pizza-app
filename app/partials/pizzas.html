@@ -21,17 +21,16 @@
                 <h3 class="panel-title">Your order:</h3>
             </div>
             <div class="panel-body">
-
-                    <div ng-repeat="item in cart.items" class="row">
+                    <div ng-repeat="item in cart.items" class="row items">
                         <div class="col-md-4">{{ item.name }} </div>
                         <div class="col-md-2">{{ item.qty }}</div>
-                        <div class="col-md-4">{{ item.price | bitcoin}}</div>
+                        <div class="col-md-4">{{ item.price | number:2 | bitcoin}}</div>
                         <div class="col-md-2">
                             <button ng-click="remove(item)" class="btn btn-default btn-xs">&#x2717;</button>
                         </div>
                     </div>
                     <div class="total">
-                        <span>Total: <strong>{{ cart.total | bitcoin }}</strong></span>
+                        <span>Total: <strong>{{ cart.total | number:2 |bitcoin }}</strong></span>
                     </div>
 
                 </table>
@@ -41,8 +40,8 @@
     </div>
     <div class="col-xs-12 col-sm-9">
         <div class="row">
-            <div ng-repeat="item in pizzas | filter: kind | filter: {kind: kind}" class="col-sm-6 col-md-4">
-                <div class="panel panel-default">
+            <div ng-repeat="item in pizzas | filter: search | filter: {kind: kind}" class="col-sm-6 col-md-4">
+                <div class="panel pizza panel-default">
                     <div class="panel-body">
                         <img ng-src="{{ item.image }}" class="pizza-img img-responsive"/>
                         <h4>
